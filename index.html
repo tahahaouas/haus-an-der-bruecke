@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Haus an der Brücke – Unterkunft in München</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --accent: #25D366;
+      --light: #fcedd3;
+      --dark: #1a1a1a;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: var(--dark);
+      background: #fcedd3;
+    }
+
+    /* =========================
+       HERO / PARALLAX
+    ========================= */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url("images/building.png"); /* PNG IS CORRECT */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(15, 36, 61, 0.75),
+        rgba(15, 36, 61, 0.55)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: white;
+      max-width: 720px;
+      padding: 20px;
+      animation: fadeUp 1.3s ease forwards;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      opacity: 0.95;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Form */
+    .form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: var(--light);
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    input, select {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Facts */
+   /* =========================
+   FACTS – CARDS STYLE
+========================= */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.fact {
+  background: #ffffff;
+  padding: 26px 22px;
+  border-radius: 14px;
+  font-size: 16px;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  /* Card shadow */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fact:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Emoji / icon emphasis */
+.fact::first-letter {
+  font-size: 22px;
+}
+
+    /* Footer */
+    footer {
+      background: #0f243d;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #8ddcff;
+      text-decoration: none;
+    }
+
+    /* Mobile fix for parallax */
+    @media (max-width: 768px) {
+      .hero {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Haus an der Brücke</h1>
+    <p>Flexible Unterkunft für Monteure & Projektteams in München</p>
+    <a class="btn" href="https://wa.me/4915781072921" target="_blank">
+      Jetzt per WhatsApp anfragen
+    </a>
+  </div>
+</header>
+
+<!-- ================= FORM ================= -->
+<section class="reveal">
+  <h2>Verfügbarkeit anfragen</h2>
+  <div class="form">
+    <input type="date" id="checkin" />
+    <input type="date" id="checkout" />
+    <select id="guests">
+  <option value="">Anzahl Gäste</option>
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>8</option>
+  <option>10</option>
+  <option>12</option>
+  <option>15</option>
+  <option>20+</option>
+</select>
+    <button class="btn" onclick="sendWhatsApp()">Anfrage senden</button>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="reveal">
+  <h2>Galerie</h2>
+  <div class="gallery">
+    <img src="images/room1.png">
+    <img src="images/room2.png">
+    <img src="images/kitchen.png">
+    <img src="images/bathroom.png">
+    <img src="images/corridor.png">
+  </div>
+</section>
+
+<!-- ================= FACTS ================= -->
+<section class="reveal">
+  <h2>Auf einen Blick</h2>
+  <div class="facts">
+    <div class="fact">🛏️ 27 Gäste – Einzel- & Mehrbettzimmer</div>
+    <div class="fact">📍 Frankfurter Ring 97, München</div>
+    <div class="fact">📶 WLAN, Küchen, Waschraum</div>
+    <div class="fact">🅿️ Parkplätze verfügbar</div>
+    <div class="fact">🚿 4 Duschen & 4 WCs</div>
+    <div class="fact">💶 ab 25€ / Nacht – 550€ / Monat</div>
+  </div>
+</section>
+
+<!-- ================= LOCATION ================= -->
+<section class="reveal">
+  <h2>Lage</h2>
+  <p style="text-align:center">
+    BMW, MAN, MTU, Olympia Park – 10 Minuten zur Innenstadt
+  </p>
+  <iframe
+    src="https://www.google.com/maps?q=Frankfurter%20Ring%2097%20München&output=embed"
+    width="100%" height="320"
+    style="border:0;border-radius:12px;"
+    loading="lazy">
+  </iframe>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p><strong>Haus an der Brücke</strong></p>
+  <p>Frankfurter Ring 97, 80807 München</p>
+  <p>📞 <a href="https://wa.me/4915781072921">+49 157 81072921 (WhatsApp)</a></p>
+  <p>✉️ haussgroupjc@gmail.com</p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+  function sendWhatsApp() {
+    const c = document.getElementById("checkin").value;
+    const o = document.getElementById("checkout").value;
+    const g = document.getElementById("guests").value;
+    const text =
+      `Hallo, ich interessiere mich für eine Unterkunft.%0A` +
+      `Anreise: ${c}%0AAbreise: ${o}%0AGäste: ${g}`;
+    window.open("https://wa.me/4915781072921?text=" + text, "_blank");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  });
+</script>
+
+</body>
+</html>
